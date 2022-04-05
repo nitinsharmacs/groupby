@@ -53,12 +53,13 @@ const frequencyCount = function (set) {
   const groups = groupBy(set);
   const counts = [];
   for (let index = 0; index < groups.length; index++) {
-    counts.push([groups[index][0], groups[index].length]);
+    const element = groups[index][0];
+    const elementFrequency = groups[index].length;
+    counts.push([element, elementFrequency]);
   }
   return counts;
 };
 
-exports.areEqual = areEqual;
 exports.areArraysEqual = areArraysEqual;
 exports.groupBy = groupBy;
 exports.frequencyCount = frequencyCount;
