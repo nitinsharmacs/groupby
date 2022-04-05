@@ -23,10 +23,17 @@ const areArraysEqual = function (array1, array2) {
   return true;
 };
 
-const groupLocation = function (element, array) {
-  for (let index = 0; index < array.length; index++) {
-    const groupFirstElement = array[index][0];
-    if (areArraysEqual(toArray(groupFirstElement), toArray(element))) {
+const areEqual = function (element1, element2) {
+  if (Array.isArray(element1)) {
+    return areArraysEqual(element1, element2);
+  }
+  return element1 === element2;
+};
+
+const groupLocation = function (element, groups) {
+  for (let index = 0; index < groups.length; index++) {
+    const groupFirstElement = groups[index][0];
+    if (areEqual(groupFirstElement, element)) {
       return index;
     }
   }
