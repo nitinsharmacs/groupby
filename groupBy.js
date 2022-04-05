@@ -11,12 +11,7 @@ const areArraysEqual = function (array1, array2) {
     return false;
   }
   for (let index = 0; index < array1.length; index++) {
-    if (areBothArrays(array1[index], array2[index])) {
-      if (areArraysEqual(array1[index], array2[index])) {
-        return true;
-      };
-    }
-    else if (array1[index] !== array2[index]) {
+    if (!areEqual(array1[index], array2[index])) {
       return false;
     }
   }
@@ -24,7 +19,7 @@ const areArraysEqual = function (array1, array2) {
 };
 
 const areEqual = function (element1, element2) {
-  if (Array.isArray(element1)) {
+  if (areBothArrays(element1, element2)) {
     return areArraysEqual(element1, element2);
   }
   return element1 === element2;
