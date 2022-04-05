@@ -1,7 +1,3 @@
-const toArray = function (element) {
-  return [].concat(element);
-};
-
 const areBothArrays = function (array1, array2) {
   return Array.isArray(array1) && Array.isArray(array2);
 };
