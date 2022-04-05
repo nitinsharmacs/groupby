@@ -23,7 +23,7 @@ const areArraysEqual = function (array1, array2) {
   return true;
 };
 
-const getLocation = function (element, array) {
+const groupLocation = function (element, array) {
   for (let index = 0; index < array.length; index++) {
     const groupFirstElement = array[index][0];
     if (areArraysEqual(toArray(groupFirstElement), toArray(element))) {
@@ -34,7 +34,7 @@ const getLocation = function (element, array) {
 };
 
 const group = function (element, groups) {
-  const location = getLocation(element, groups);
+  const location = groupLocation(element, groups);
   if (location < 0) {
     groups.push([element])
     return groups;
