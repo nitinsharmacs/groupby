@@ -49,22 +49,5 @@ const groupBy = function (array) {
   return group(array[0], groups);
 };
 
-const main = function () {
-  const tests = [
-    [],
-    [1, 2, 1],
-    [1, 2, 3, 1, 2, 4],
-    [[1, 1], 1, [1, 1], 1],
-    [[1, 2], '1,2', '1,2', [1, 2]],
-    ['1', 2, 1, 'a', 'b', 'a'],
-    [[], 2, 1, []],
-    [[1, 2], [1, 2]],
-    [[], 1, [], 1],
-    [[[1], [2]], [[1], [2]]]
-  ];
-  for (let index = 0; index < tests.length; index++) {
-    console.log(groupBy(tests[index]));
-  }
-};
-
-main();
+exports.areArraysEqual = areArraysEqual;
+exports.groupBy = groupBy;
