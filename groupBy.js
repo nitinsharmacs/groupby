@@ -41,12 +41,12 @@ const group = function (element, groups) {
   return groups;
 };
 
-const groupBy = function (array) {
-  if (array.length === 0) {
+const groupBy = function (set) {
+  if (set.length === 0) {
     return [];
   }
-  const groups = groupBy(array.slice(1));
-  return group(array[0], groups);
+  const groups = groupBy(set.slice(1));
+  return group(set[0], groups);
 };
 
 exports.areArraysEqual = areArraysEqual;
