@@ -23,23 +23,16 @@ const groupByTests = function () {
   const tests = [
     ['Empty set', [], []],
     ['Set of numbers', [[1, 1], [2]], [1, 2, 1]],
-    ['Same Arrays and numbers', [[1, 1], [[1, 1], [1, 1]]], [[1, 1], 1, [1, 1], 1]],
+    ['Same Arrays and numbers', [[[1, 1], [1, 1]], [1, 1]], [[1, 1], 1, [1, 1], 1]],
     ['Same arrays and string', [[[1, 2], [1, 2]], ['1,2', '1,2']], [[1, 2], '1,2', '1,2', [1, 2]]],
-    ['Numbers and strings', [['a', 'a'], ['b'], [1], [2], ['1']], ['1', 2, 1, 'a', 'b', 'a']],
-    ['Empty arrays and numbers', [[[], []], [1], [2]], [[], 2, 1, []]],
+    ['Numbers and strings', [['1'], [2], [1], ['a', 'a'], ['b']], ['1', 2, 1, 'a', 'b', 'a']],
+    ['Empty arrays and numbers', [[[], []], [2], [1]], [[], 2, 1, []]],
     ['Only same arrays', [[[1, 2], [1, 2]]], [[1, 2], [1, 2]]],
     ['Nested Arrays', [[[[1], [2]], [[1], [2]]]], [[[1], [2]], [[1], [2]]]]
   ];
   for (let index = 0; index < tests.length; index++) {
     testGroupBy(tests[index][0], tests[index][1], tests[index][2]);
   }
-  // testGroupBy('Present in a single letter string', true, 'n', 'n');
-  // testGroupBy('Not present in a single letter string', false, 't', 'n');
-
-  // testGroupBy('Present in a multiple letters string', true, 'n', 'on');
-  // testGroupBy('Not present in a multiple letters string', false, 't', 'on');
-
-  // testGroupBy('Present substring in a string', true, 'll', 'hello');
 };
 
 const allTests = function () {
