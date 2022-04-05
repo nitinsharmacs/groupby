@@ -42,23 +42,29 @@ const group = function (element, groups) {
 };
 
 const groupBy = function (array) {
-  if (array.length === 1) {
-    return [array];
+  if (array.length === 0) {
+    return [];
   }
   const groups = groupBy(array.slice(1));
   return group(array[0], groups);
 };
 
 const main = function () {
-  console.log(groupBy([1, 2, 1]));
-  console.log(groupBy([1, 2, 3, 1, 2, 4]));
-  console.log(groupBy([[1, 1], 1, [1, 1], 1]));
-  console.log(groupBy([[1, 2], '1,2', '1,2', [1, 2]]));
-  console.log(groupBy(['1', 2, 1, 'a', 'b', 'a']));
-  console.log(groupBy([[], 2, 1, []]));
-  console.log(groupBy([[1, 2], [1, 2]]));
-  console.log(groupBy([[], 1, [], 1]));
-  console.log(groupBy([[[1], [2]], [[1], [2]]]));
+  const tests = [
+    [],
+    [1, 2, 1],
+    [1, 2, 3, 1, 2, 4],
+    [[1, 1], 1, [1, 1], 1],
+    [[1, 2], '1,2', '1,2', [1, 2]],
+    ['1', 2, 1, 'a', 'b', 'a'],
+    [[], 2, 1, []],
+    [[1, 2], [1, 2]],
+    [[], 1, [], 1],
+    [[[1], [2]], [[1], [2]]]
+  ];
+  for (let index = 0; index < tests.length; index++) {
+    console.log(groupBy(tests[index]));
+  }
 };
 
 main();
