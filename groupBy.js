@@ -42,11 +42,11 @@ const group = function (element, groups) {
 };
 
 const groupBy = function (set) {
-  if (set.length === 0) {
-    return [];
+  const groups = [];
+  for (let index = 0; index < set.length; index++) {
+    group(set[index], groups);
   }
-  const groups = groupBy(set.slice(1));
-  return group(set[0], groups);
+  return groups;
 };
 
 exports.areArraysEqual = areArraysEqual;
