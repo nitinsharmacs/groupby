@@ -1,30 +1,9 @@
-const areBothArrays = function (array1, array2) {
-  return Array.isArray(array1) && Array.isArray(array2);
-};
-
-const areArraysEqual = function (array1, array2) {
-  if (array1.length !== array2.length) {
-    return false;
-  }
-  for (let index = 0; index < array1.length; index++) {
-    if (!areEqual(array1[index], array2[index])) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const areEqual = function (element1, element2) {
-  if (areBothArrays(element1, element2)) {
-    return areArraysEqual(element1, element2);
-  }
-  return element1 === element2;
-};
+const isEqual = require('./isEqual.js').isEqual;
 
 const groupLocation = function (element, groups) {
   for (let index = 0; index < groups.length; index++) {
     const groupFirstElement = groups[index][0];
-    if (areEqual(groupFirstElement, element)) {
+    if (isEqual(groupFirstElement, element)) {
       return index;
     }
   }
@@ -41,16 +20,16 @@ const group = function (element, groups) {
   return groups;
 };
 
-const groupBy = function (set) {
+const groupBy = function (list) {
   const groups = [];
-  for (let index = 0; index < set.length; index++) {
-    group(set[index], groups);
+  for (let index = 0; index < list.length; index++) {
+    group(list[index], groups);
   }
   return groups;
 };
 
-const frequencyCount = function (set) {
-  const groups = groupBy(set);
+const frequencyCount = function (list) {
+  const groups = groupBy(list);
   const counts = [];
   for (let index = 0; index < groups.length; index++) {
     const element = groups[index][0];
@@ -60,6 +39,6 @@ const frequencyCount = function (set) {
   return counts;
 };
 
-exports.areArraysEqual = areArraysEqual;
+exports.areArraysEqual = isEqual;
 exports.groupBy = groupBy;
 exports.frequencyCount = frequencyCount;
