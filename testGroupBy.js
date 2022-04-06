@@ -29,7 +29,7 @@ const groupByTests = function () {
     ['Numbers and strings', [['1'], [2], [1], ['a', 'a'], ['b']], ['1', 2, 1, 'a', 'b', 'a']],
     ['Empty arrays and numbers', [[[], []], [2], [1]], [[], 2, 1, []]],
     ['Only same arrays', [[[1, 2], [1, 2]]], [[1, 2], [1, 2]]],
-    ['Nested arrays', [[[[1], [2]], [[1], [2]]]], [[[1], [2]], [[1], [2]]]],
+    ['Nested arrays', [[[[1, [3]], [2]], [[1, [3]], [2]]]], [[[1, [3]], [2]], [[1, [3]], [2]]]],
     ['Nested array and number', [[[[1], 2], [[1], 2]]], [[[1], 2], [[1], 2]]]
   ];
   for (let index = 0; index < tests.length; index++) {
@@ -63,7 +63,7 @@ const frequencyCountTests = function () {
 
 const allTests = function () {
   groupByTests();
-  // frequencyCountTests();
+  frequencyCountTests();
   const report = testReport.generateTestReport(getTests());
   testReport.displayReport(report);
 }
